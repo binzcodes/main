@@ -1,7 +1,12 @@
 <template>
-  <v-icon :color="skill.color">
-    {{ skill.icon }}
-  </v-icon>
+  <v-tooltip bottom>
+    <template v-slot:activator="{ on }">
+      <v-icon v-on="on" :color="skill.color" size="28">
+        {{ skill.icon }}
+      </v-icon>
+    </template>
+    <span>{{ skill.name }}</span>
+  </v-tooltip>
 </template>
 
 <script>
