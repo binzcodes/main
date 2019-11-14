@@ -15,7 +15,12 @@ export default {
       description:
         "I'm Ryan. " +
         'A freelance software engineer, DevOps guy and Digital Nomad.' +
-        'I make cloud native web applications whilst traveling, mostly with Node.js'
+        'I make cloud native web applications whilst traveling, mostly with Node.js',
+      ogHost: 'rbi.nz'
+    },
+    manifest: {
+      short_name: 'rbi.nz',
+      name: 'rbi.nz'
     }
   },
   /*
