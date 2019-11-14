@@ -1,10 +1,10 @@
-# binz-main
+# rbi.nz
 > My portfolio, personal site and dev blog.
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 
-Written in [typescript](https://typescriptlang.org/) using [Node.js](), [Nuxt](https://nuxtjs.org), [Vue](https://vuejs.org) and [Vuetify](https://vuetifyjs.com/. 
+Written in [typescript](https://typescriptlang.org/) using [Nuxt](https://nuxtjs.org), [Vue](https://vuejs.org) and [Vuetify](https://vuetifyjs.com/). 
 
 ## Build Setup
 
