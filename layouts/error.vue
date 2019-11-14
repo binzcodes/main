@@ -1,29 +1,22 @@
 <template>
   <v-app>
-    <v-layout row wrap align-center justify-center>
-      <v-flex xs12 sm6 md4>
-        <v-card>
-          <v-img
-            class="white--text align-end"
-            src="https://source.unsplash.com/random/500x500/"
-          >
-            <v-responsive :aspect-ratio="1 / 1">
-              <v-card-title primary-title>
-                <div>
-                  <div v-text="error.statusCode" class="headline">500</div>
-                  <span v-text="error.message" class="grey--text">
-                    An error occured
-                  </span>
-                </div>
-              </v-card-title>
-            </v-responsive>
-          </v-img>
-          <v-card-actions>
-            <v-btn text color="primary" nuxt to="/">Back</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-flex>
-    </v-layout>
+    <v-container fluid class="fill-height">
+      <v-row align="center" justify="center">
+        <v-col cols="12" sm="8" md="4">
+          <v-card class="mx-auto" max-width="400">
+            <v-img class="white--text align-end" height="200px" src="/icon.png">
+              <v-card-title v-text="error.statusCode">500</v-card-title>
+            </v-img>
+            <v-card-subtitle v-text="error.message" class="grey--text">
+              An error occured
+            </v-card-subtitle>
+            <v-card-actions>
+              <v-btn text color="primary" nuxt to="/">Back</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-app>
 </template>
 

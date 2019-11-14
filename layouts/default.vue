@@ -2,9 +2,7 @@
   <v-app>
     <!-- nav goes here -->
     <v-content>
-      <v-container fluid fill-height>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-content>
     <v-footer>
       <span>Binns Ltd ©{{ year }}</span>
