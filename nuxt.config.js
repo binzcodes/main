@@ -69,6 +69,12 @@ export default {
     }
   },
   /*
+   ** Generate configuration
+   */
+  generate: {
+    fallback: true
+  },
+  /*
    ** Build configuration
    */
   build: {

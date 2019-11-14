@@ -1,6 +1,7 @@
 # rbi.nz
 > My portfolio, personal site and dev blog.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e1a05621-9369-4f98-b20c-5c3d1c74c872/deploy-status)](https://app.netlify.com/sites/binz-main/deploys)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 
