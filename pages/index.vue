@@ -1,26 +1,24 @@
 <template>
-  <v-layout row wrap align-center justify-center>
-    <v-flex xs12 sm6 md4>
-      <v-card>
-        <div>
-          <!--          <div class="mx-auto">-->
-          <!--            <div class="my-4">-->
-          <logo />
-          <!--            </div>-->
-          <!--          </div>-->
-        </div>
-        <v-card-title primary-title class="p-8">
-          <div class="mx-auto">
-            <div class="headline text-xs-center">Hello World!</div>
-            <span class="grey--text text-xs-center">
-              More to come, for now check out my stack...
-            </span>
+  <v-container fluid class="fill-height">
+    <v-row align="center" justify="center">
+      <v-col cols="12" sm="8" md="4">
+        <v-card>
+          <div>
+            <logo />
           </div>
-        </v-card-title>
-        <skills v-bind:skills="skills"></skills>
-      </v-card>
-    </v-flex>
-  </v-layout>
+          <v-card-title primary-title class="p-8">
+            <div class="mx-auto">
+              <div class="headline text-xs-center">Hello World!</div>
+              <span class="grey--text text-xs-center">
+                More to come, for now check out my stack...
+              </span>
+            </div>
+          </v-card-title>
+          <skills v-bind:skills="skills"></skills>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

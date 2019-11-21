@@ -1,10 +1,13 @@
-# binz-main
+# rbi.nz
 > My portfolio, personal site and dev blog.
 
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e1a05621-9369-4f98-b20c-5c3d1c74c872/deploy-status)](https://app.netlify.com/sites/binz-main/deploys)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square)](https://conventionalcommits.org)
 
 
-Written in [typescript](https://typescriptlang.org/) using [Node.js](), [Nuxt](https://nuxtjs.org), [Vue](https://vuejs.org) and [Vuetify](https://vuetifyjs.com/. 
+Written in [typescript](https://typescriptlang.org/) using [Nuxt](https://nuxtjs.org), [Vue](https://vuejs.org) and [Vuetify](https://vuetifyjs.com/). 
 
 ## Build Setup
 
