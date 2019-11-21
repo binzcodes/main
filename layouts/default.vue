@@ -4,9 +4,7 @@
     <v-content>
       <nuxt />
     </v-content>
-    <v-footer>
-      <span>Binns Ltd ©{{ year }}</span>
-    </v-footer>
+    <!-- footer goes here -->
   </v-app>
 </template>
 
