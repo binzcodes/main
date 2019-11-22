@@ -5,7 +5,24 @@ export default {
   /*
    ** Headers of the page
    */
-  head: {},
+  head: {
+    meta: [
+      { name: 'Content-Security-Policy', content: 'form-action https:' },
+      { name: 'X-Frame-Options', content: 'DENY' },
+      { name: 'X-Content-Type-Options', content: 'nosniff' },
+      { name: 'X-XSS-Protection', content: '1; mode=block' },
+      { name: 'Referrer-Policy', content: 'strict-origin-when-cross-origin' },
+      {
+        name: 'Feature-Policy',
+        content:
+          "vibrate 'none'; geolocation 'none'; midi 'none'; " +
+          "notifications 'none'; push 'none'; sync-xhr 'none'; " +
+          "microphone 'none'; camera 'none'; magnetometer 'none'; " +
+          "gyroscope 'none'; speaker 'none'; vibrate 'none'; " +
+          "fullscreen 'none'; payment 'none'"
+      }
+    ]
+  },
   /*
    ** PWA settings
    */
