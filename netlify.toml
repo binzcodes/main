@@ -1,0 +1,19 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "default-src https:"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+    Feature-Policy = '''
+    ambient-light-sensor 'none';
+    vibrate 'none';
+    geolocation 'none';
+    midi 'none';
+    microphone 'none';
+    camera 'none';
+    magnetometer 'none';
+    speaker 'none'
+    unoptimised-images 'none'
+    '''
