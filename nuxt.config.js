@@ -7,12 +7,6 @@ export default {
    */
   head: {},
   /*
-   ** Render settings
-   */
-  render: {
-    csp: true
-  },
-  /*
    ** PWA settings
    */
   pwa: {
