@@ -1,19 +1,29 @@
 <template>
-  <v-container fluid class="fill-height">
-    <v-row align="center" justify="center">
-      <v-col cols="12" sm="8" md="4">
-        <hello-card />
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-card>
+    <div>
+      <logo />
+    </div>
+    <v-card-title primary-title class="p-8">
+      <div class="mx-auto">
+        <h1 class="headline text-xs-center">Hello World!</h1>
+        <p class="grey--text text-xs-center mb-0">
+          More to come, for now heres my stack...
+        </p>
+      </div>
+    </v-card-title>
+    <skills v-bind:skills="skills"></skills>
+  </v-card>
 </template>
 
 <script>
-import HelloCard from '~/components/HelloCard.vue'
+import Logo from '~/components/Logo.vue'
+import Skills from '~/components/Skills.vue'
 
 export default {
+  name: 'HelloCard',
   components: {
-    HelloCard
+    Logo,
+    Skills
   },
   data() {
     return {
@@ -59,3 +69,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.v-card__text,
+.v-card__title {
+  word-break: normal;
+}
+</style>
