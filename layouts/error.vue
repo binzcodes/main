@@ -2,14 +2,16 @@
   <v-app>
     <v-container fluid class="fill-height">
       <v-row align="center" justify="center">
-        <v-col cols="12" sm="8" md="4">
-          <v-card class="mx-auto" max-width="400">
-            <v-img class="white--text align-end" height="200px" src="/icon.png">
-              <v-card-title v-text="error.statusCode">500</v-card-title>
+        <v-col cols="12" sm="6" md="4">
+          <v-card class="mx-auto">
+            <v-img
+              class="white--text align-end"
+              aspect-ratio="2"
+              src="/background.svg"
+            >
+              <v-card-title v-text="error.statusCode" />
             </v-img>
-            <v-card-subtitle v-text="error.message" class="grey--text">
-              An error occured
-            </v-card-subtitle>
+            <v-card-subtitle v-text="error.message" class="pb-0" />
             <v-card-actions>
               <v-btn text color="primary" nuxt to="/">Back</v-btn>
             </v-card-actions>
@@ -22,7 +24,7 @@
 
 <script>
 export default {
-  layout: 'empty',
+  layout: 'default',
   props: {
     error: {
       type: Object,
@@ -30,23 +32,17 @@ export default {
     }
   },
   head() {
-    const title =
-      this.error.statusCode === 404 ? this.pageNotFound : this.otherError
     return {
-      title
+      title: this.message
     }
   },
-  data() {
-    return {
-      pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
+  computed: {
+    statusCode() {
+      return (this.error && this.error.statusCode) || 500
+    },
+    message() {
+      return this.error.message || 'An error occurred'
     }
   }
 }
 </script>
-
-<style scoped>
-h1 {
-  font-size: 20px;
-}
-</style>
