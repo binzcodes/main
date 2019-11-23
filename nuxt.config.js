@@ -13,9 +13,9 @@ export default {
     meta: {
       name: 'rbi.nz',
       description:
-        "I'm Ryan. " +
-        'A freelance software engineer, DevOps guy and Digital Nomad.' +
-        'I make cloud native web applications whilst traveling, mostly with Node.js',
+        'Freelance software engineer, DevOps guy and Digital Nomad. ' +
+        'I make cloud native web applications whilst traveling, ' +
+        'mostly with Node.js',
       ogHost: 'rbi.nz'
     },
     manifest: {
