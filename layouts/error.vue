@@ -2,9 +2,13 @@
   <v-app>
     <v-container fluid class="fill-height">
       <v-row align="center" justify="center">
-        <v-col cols="12" sm="8" md="4">
-          <v-card class="mx-auto" max-width="400">
-            <v-img class="white--text align-end" height="200px" src="/icon.png">
+        <v-col cols="12" sm="6" md="4">
+          <v-card class="mx-auto">
+            <v-img
+              class="white--text align-end"
+              aspect-ratio="2"
+              src="/background.svg"
+            >
               <v-card-title v-text="error.statusCode" />
             </v-img>
             <v-card-subtitle v-text="error.message" class="pb-0" />
