@@ -9,13 +9,19 @@
   </v-tooltip>
 </template>
 
-<script>
+<script lang="ts">
+interface Skill {
+  name: string
+  icon: string
+  color: string
+}
+
 export default {
   name: 'Skill',
   props: {
     skill: {
-      type: Object,
-      default: () => {}
+      type: Object as () => Skill,
+      required: true
     }
   }
 }

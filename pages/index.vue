@@ -2,18 +2,18 @@
   <v-container fluid class="fill-height">
     <v-row align="center" justify="center">
       <v-col cols="12" sm="8" md="4">
-        <hello-card />
+        <hello-card card-title="Hello World!">
+          More to come, for now heres my stack...
+        </hello-card>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import HelloCard from '~/components/HelloCard.vue'
-
 export default {
   components: {
-    HelloCard
+    HelloCard: () => import('~/components/HelloCard.vue')
   },
   data() {
     return {

@@ -5,9 +5,9 @@
     </div>
     <v-card-title primary-title class="p-8">
       <div class="mx-auto">
-        <h1 class="headline text-xs-center">Hello World!</h1>
+        <h1 class="headline text-xs-center">{{ cardTitle }}</h1>
         <p class="grey--text text-xs-center mb-0">
-          More to come, for now heres my stack...
+          <slot></slot>
         </p>
       </div>
     </v-card-title>
@@ -16,15 +16,13 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import Skills from '~/components/Skills.vue'
-
 export default {
   name: 'HelloCard',
   components: {
-    Logo,
-    Skills
+    Logo: () => import('~/components/Logo.vue'),
+    Skills: () => import('~/components/Skills.vue')
   },
+  props: { cardTitle: { type: String, default: 'Hello, world!' } },
   data() {
     return {
       skills: [
