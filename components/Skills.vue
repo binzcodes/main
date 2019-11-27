@@ -7,12 +7,10 @@
 </template>
 
 <script>
-import Skill from './Skill'
-
 export default {
   name: 'Skills',
   components: {
-    Skill
+    Skill: () => import('~/components/Skill.vue')
   },
   props: {
     skills: {

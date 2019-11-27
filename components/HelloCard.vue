@@ -1,20 +1,28 @@
 <template>
-  <v-container fluid class="fill-height">
-    <v-row align="center" justify="center">
-      <v-col cols="12" sm="8" md="4">
-        <hello-card card-title="Hello World!">
-          More to come, for now heres my stack...
-        </hello-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-card>
+    <div>
+      <logo />
+    </div>
+    <v-card-title primary-title class="p-8">
+      <div class="mx-auto">
+        <h1 class="headline text-xs-center">{{ cardTitle }}</h1>
+        <p class="grey--text text-xs-center mb-0">
+          <slot></slot>
+        </p>
+      </div>
+    </v-card-title>
+    <skills v-bind:skills="skills"></skills>
+  </v-card>
 </template>
 
 <script>
 export default {
+  name: 'HelloCard',
   components: {
-    HelloCard: () => import('~/components/HelloCard.vue')
+    Logo: () => import('~/components/Logo.vue'),
+    Skills: () => import('~/components/Skills.vue')
   },
+  props: { cardTitle: { type: String, default: 'Hello, world!' } },
   data() {
     return {
       skills: [
@@ -59,3 +67,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.v-card__text,
+.v-card__title {
+  word-break: normal;
+}
+</style>
