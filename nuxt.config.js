@@ -11,8 +11,8 @@ export default {
     meta: {
       name: 'rbi.nz',
       description:
-        'Freelance software engineer, DevOps guy and Digital Nomad. ' +
-        'I make cloud native web applications whilst traveling, ' +
+        'Freelance Software Engineer, DevOps guy and Digital Nomad. ' +
+        'I make cloud-native web applications while backpacking, ' +
         'mostly with Node.js',
       ogHost: 'rbi.nz'
     },
