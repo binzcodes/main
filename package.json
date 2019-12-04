@@ -31,8 +31,9 @@
     }
   },
   "dependencies": {
+    "@nuxtjs/pwa": "^3.0.0-0",
     "nuxt": "^2.0.0",
-    "@nuxtjs/pwa": "^3.0.0-0"
+    "nuxt-webfontloader": "^1.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",

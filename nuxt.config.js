@@ -46,16 +46,28 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa'],
+  modules: ['@nuxtjs/pwa', 'nuxt-webfontloader'],
+  webfontloader: {
+    custom: {
+      families: ['Monserrat:n1,n3,n4,n5,n7n9', 'Share Tech:n3,n4,n7'],
+      urls: [
+        'https://fonts.googleapis.com/css?family=Monserrat:100,300,400,500,700,900&display=swap',
+        'https://fonts.googleapis.com/css?family=Share+Tech:100,300,400,500,700,900&display=swap'
+      ]
+    }
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    // customVariables: ['~/assets/variables.scss'],
-    // defaultAssets: { font: false },
-    // treeShake: true,
+    customVariables: ['~/assets/variables.scss'],
+    defaultAssets: {
+      font: false
+    },
+    treeShake: true,
     theme: {
+      options: { customeProperties: true },
       dark: false,
       themes: {
         dark: {
