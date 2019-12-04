@@ -47,9 +47,9 @@ export default {
   modules: ['@nuxtjs/pwa', 'nuxt-webfontloader'],
   webfontloader: {
     custom: {
-      families: ['Monserrat:n1,n3,n4,n5,n7n9', 'Share Tech:n3,n4,n7'],
+      families: ['Montserrat:n1,n3,n4,n5,n7n9', 'Share Tech:n3,n4,n7'],
       urls: [
-        'https://fonts.googleapis.com/css?family=Monserrat:100,300,400,500,700,900&display=swap',
+        'https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700,900&display=swap',
         'https://fonts.googleapis.com/css?family=Share+Tech:100,300,400,500,700,900&display=swap'
       ]
     }
