@@ -1,10 +1,29 @@
 <template>
-  <v-container fluid class="fill-height">
-    <v-row align="center" justify="center">
-      <v-col cols="12" sm="8" md="4">
-        <hello-card card-title="Hello World!">
-          More to come, for now heres my stack...
-        </hello-card>
+  <v-container>
+    <hero-sheet :title="title">
+      <v-card-subtitle class="px-0 headline font-weight-light">
+        <p>
+          Software Engineer, DevOps guy and Digital Nomad
+        </p>
+        <p>
+          I make cloud-native web applications while backpacking, mostly with
+          Node.js
+        </p>
+      </v-card-subtitle>
+    </hero-sheet>
+
+    <v-row>
+      <v-col v-for="n in 12" :key="n" cols="12" sm="6" md="4">
+        <preview-card
+          :img-src="`https://picsum.photos/1200/600?image=${n + randomSeed}`"
+          :lazy-img-src="
+            `https://picsum.photos/1200/600?image=${n + randomSeed}`
+          "
+        >
+          <v-card-text>
+            Here is some information about the thing that is pictured.
+          </v-card-text>
+        </preview-card>
       </v-col>
     </v-row>
   </v-container>
@@ -13,10 +32,12 @@
 <script>
 export default {
   components: {
-    HelloCard: () => import('~/components/HelloCard.vue')
+    HeroSheet: () => import('~/components/ui/HeroSheet.vue'),
+    PreviewCard: () => import('~/components/ui/PreviewCard')
   },
   data() {
     return {
+      title: 'bınz',
       skills: [
         {
           name: 'Node.js',

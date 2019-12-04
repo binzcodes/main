@@ -1,23 +1,24 @@
 <template>
   <v-app>
-    <v-container fluid class="fill-height">
-      <v-row align="center" justify="center">
-        <v-col cols="12" sm="6" md="4">
-          <v-card class="mx-auto">
-            <v-img
-              class="white--text align-end"
-              aspect-ratio="2"
-              src="/background.svg"
-            >
-              <v-card-title v-text="error.statusCode" />
-            </v-img>
-            <v-card-subtitle v-text="error.message" class="pb-0" />
-            <v-card-actions>
-              <v-btn text color="primary" nuxt to="/">Back</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
+    <v-container>
+      <hero-sheet :title="error.statusCode" title-class="error--text">
+        <v-card-subtitle
+          v-text="error.message"
+          class="px-0 headline display--massive-sub font-weight-light"
+        >
+        </v-card-subtitle>
+        <v-card-text
+          class="px-0 headline display--massive-sub font-weight-light"
+        >
+          The issue has been reported using
+          <a @click="openSentry">sentry.io</a>
+        </v-card-text>
+        <v-card-actions class="px-0">
+          <v-btn outlined color="success" nuxt to="/" tile large>
+            Take me back
+          </v-btn>
+        </v-card-actions>
+      </hero-sheet>
     </v-container>
   </v-app>
 </template>
@@ -25,6 +26,9 @@
 <script>
 export default {
   layout: 'default',
+  components: {
+    HeroSheet: () => import('~/components/ui/HeroSheet.vue')
+  },
   props: {
     error: {
       type: Object,
@@ -42,6 +46,11 @@ export default {
     },
     message() {
       return this.error.message || 'An error occurred'
+    }
+  },
+  methods: {
+    openSentry() {
+      window.open('https://sentry.io/', '_blank')
     }
   }
 }
