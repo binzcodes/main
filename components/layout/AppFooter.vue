@@ -44,7 +44,7 @@ export default {
     },
     openWhatsApp() {
       window.open(
-        'https://wa.me/447801992902/?text=Hi,%20can%20you%20build%20me%20something%awesome%3F',
+        "https://wa.me/447801992902?text=Hello%20Ryan%2C%20I'm%20inquiring%20about%20your%20services",
         '_blank'
       )
     }
