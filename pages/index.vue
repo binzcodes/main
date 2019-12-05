@@ -17,7 +17,7 @@
         <preview-card
           :img-src="`https://picsum.photos/1200/600?image=${n + randomSeed}`"
           :lazy-img-src="
-            `https://picsum.photos/1200/600?image=${n + randomSeed}`
+            `https://picsum.photos/12/6?image=${n + randomSeed}`
           "
         >
           <v-card-text>
