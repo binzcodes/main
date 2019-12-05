@@ -16,9 +16,6 @@
       <v-col v-for="n in 12" :key="n" cols="12" sm="6" md="4">
         <preview-card
           :img-src="`https://picsum.photos/1200/600?image=${n + randomSeed}`"
-          :lazy-img-src="
-            `https://picsum.photos/12/6?image=${n + randomSeed}`
-          "
         >
           <v-card-text>
             Here is some information about the thing that is pictured.

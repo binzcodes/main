@@ -17,7 +17,16 @@
 <script>
 export default {
   name: 'ImageCard',
-  props: ['imgSrc', 'lazyImgSrc']
+  props: {
+    imgSrc: {
+      type: String,
+      default: 'background.svg'
+    },
+    lazyImgSrc: {
+      type: String,
+      default: 'background.svg'
+    }
+  }
 }
 </script>
 
