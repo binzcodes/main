@@ -1,3 +1,9 @@
+[build]
+  # Directory containing files to be published
+  publish = "dist"
+  # Default build command.
+  command = "npm run generate"
+
 [[headers]]
   for = "/*"
   [headers.values]

@@ -4,7 +4,9 @@ module.exports = {
     browser: true,
     node: true
   },
-  parserOptions: {},
+  parserOptions: {
+    parser: 'babel-eslint'
+  },
   extends: [
     '@nuxtjs',
     '@nuxtjs/eslint-config-typescript',
@@ -20,5 +22,3 @@ module.exports = {
   rules: {
   }
 }
-
-// might come in handy: https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb
