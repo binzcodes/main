@@ -1,28 +1,34 @@
 <template>
   <v-app>
-    <v-container fluid class="fill-height">
-      <v-row align="center" justify="center">
-        <v-col cols="12" sm="8" md="4">
-          <v-card class="mx-auto" max-width="400">
-            <v-img class="white--text align-end" height="200px" src="/icon.png">
-              <v-card-title v-text="error.statusCode">500</v-card-title>
-            </v-img>
-            <v-card-subtitle v-text="error.message" class="grey--text">
-              An error occured
-            </v-card-subtitle>
-            <v-card-actions>
-              <v-btn text color="primary" nuxt to="/">Back</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
+    <v-container>
+      <hero-sheet :title="error.statusCode" title-class="error--text">
+        <v-card-subtitle
+          v-text="error.message"
+          class="px-0 headline display--massive-sub font-weight-light"
+        >
+        </v-card-subtitle>
+        <v-card-text
+          class="px-0 headline display--massive-sub font-weight-light"
+        >
+          The issue has been reported using
+          <a @click="openSentry">sentry.io</a>
+        </v-card-text>
+        <v-card-actions class="px-0">
+          <v-btn outlined color="success" nuxt to="/" tile large>
+            Take me back
+          </v-btn>
+        </v-card-actions>
+      </hero-sheet>
     </v-container>
   </v-app>
 </template>
 
 <script>
 export default {
-  layout: 'empty',
+  layout: 'default',
+  components: {
+    HeroSheet: () => import('~/components/ui/HeroSheet.vue')
+  },
   props: {
     error: {
       type: Object,
@@ -30,23 +36,22 @@ export default {
     }
   },
   head() {
-    const title =
-      this.error.statusCode === 404 ? this.pageNotFound : this.otherError
     return {
-      title
+      title: this.message
     }
   },
-  data() {
-    return {
-      pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
+  computed: {
+    statusCode() {
+      return (this.error && this.error.statusCode) || 500
+    },
+    message() {
+      return this.error.message || 'An error occurred'
+    }
+  },
+  methods: {
+    openSentry() {
+      window.open('https://sentry.io/', '_blank')
     }
   }
 }
 </script>
-
-<style scoped>
-h1 {
-  font-size: 20px;
-}
-</style>

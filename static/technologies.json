@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Node.js",
+    "description": "Event driven non-blocking i/o",
+    "icon": "mdi-nodejs",
+    "color": "green"
+  },
+  {
+    "name": "TypeScript",
+    "description": "Adds static typing to Javascript",
+    "icon": "mdi-language-typescript",
+    "color": "light-blue"
+  },
+  {
+    "name": "Vue.js",
+    "description": "Makes a website site do awesome stuff.",
+    "icon": "mdi-vuejs",
+    "color": "teal"
+  },
+  {
+    "name": "GraphQL",
+    "description": "Powerful APIs developed by facebook.",
+    "icon": "mdi-graphql",
+    "color": "pink darken-2"
+  },
+  {
+    "name": "Vuetify",
+    "description": "Makes my websites look awesome.",
+    "icon": "mdi-vuetify",
+    "color": "blue lighten-2"
+  },
+  {
+    "name": "NuxtJS",
+    "description": "Server Side Rendering & static app generation.",
+    "icon": "mdi-nuxt",
+    "color": "teal"
+  },
+  {
+    "name": "Kubernetes",
+    "pronunciation": "Koob-er-net-ease",
+    "description": "Container Orchestration",
+    "icon": "mdi-kubernetes",
+    "color": "blue darken-2"
+  },
+  {
+    "name": "Postgres",
+    "description": "Powerful relational Databases",
+    "logoSrc": "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
+    "color": "light-blue accent-4"
+  },
+  {
+    "name": "Sentry.io",
+    "description": "Application performance monitoring",
+    "color": "black",
+    "logoSrc": "https://api.nuget.org/v3-flatcontainer/sentry.protocol/1.0.6/icon"
+  },
+  {
+    "name": "Netlify",
+    "description": "Fast to production CI-and-CDN backed Hosting for static sites.",
+    "color": "cyan",
+    "logoSrc": "https://www.netlify.com/img/press/logos/logomark.png"
+  }
+]

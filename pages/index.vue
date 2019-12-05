@@ -1,76 +1,32 @@
 <template>
-  <v-container fluid class="fill-height">
-    <v-row align="center" justify="center">
-      <v-col cols="12" sm="8" md="4">
-        <v-card>
-          <div>
-            <logo />
-          </div>
-          <v-card-title primary-title class="p-8">
-            <div class="mx-auto">
-              <div class="headline text-xs-center">Hello World!</div>
-              <span class="grey--text text-xs-center">
-                More to come, for now check out my stack...
-              </span>
-            </div>
-          </v-card-title>
-          <skills v-bind:skills="skills"></skills>
-        </v-card>
-      </v-col>
-    </v-row>
+  <v-container>
+    <hero-sheet :title="title">
+      <v-card-subtitle class="px-0 headline font-weight-light">
+        <p>
+          Software Engineer, DevOps guy and Digital Nomad
+        </p>
+        <p>
+          I make cloud-native web applications while backpacking, mostly with
+          Node.js
+        </p>
+      </v-card-subtitle>
+    </hero-sheet>
+    <tech-gallery></tech-gallery>
   </v-container>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import Skills from '~/components/Skills.vue'
-
 export default {
   components: {
-    Logo,
-    Skills
+    HeroSheet: () => import('~/components/ui/HeroSheet.vue'),
+    TechGallery: () => import('~/components/placeholder/Gallery.vue')
   },
   data() {
     return {
-      skills: [
-        {
-          name: 'Node.js',
-          description: '',
-          icon: 'mdi-nodejs',
-          color: 'green'
-        },
-        {
-          name: 'TypeScript',
-          description: '',
-          icon: 'mdi-language-typescript',
-          color: 'light-blue'
-        },
-        {
-          name: 'Vue.js',
-          description: '',
-          icon: 'mdi-vuejs',
-          color: 'teal'
-        },
-        {
-          name: 'GraphQL',
-          description: '',
-          icon: 'mdi-graphql',
-          color: 'pink darken-2'
-        },
-        {
-          name: 'NuxtJS',
-          description: '',
-          icon: 'mdi-nuxt',
-          color: 'teal'
-        },
-        {
-          name: 'Kubernetes',
-          description: 'Koob-er-net-ease',
-          icon: 'mdi-kubernetes',
-          color: 'blue darken-2'
-        }
-      ]
+      title: 'bınz'
     }
   }
 }
 </script>
+
+<style></style>

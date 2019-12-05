@@ -2,3 +2,14 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+
+// this section is where you modify global variables
+$body-font-family: 'Montserrat', 'Roboto', '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+$heading-font-family: $body-font-family !important;
+
+// This import MUST be after the global variable settings and before modifications of them
+//@import '~vuetify/src/styles/styles.sass';
+
+// this section is where you modify component specific variables
+//$material-light: map-deep-set($material-light, 'background', var(--v-background-darken1));
+//$material-dark: map-deep-set($material-dark, 'background', var(--v-background-base));
