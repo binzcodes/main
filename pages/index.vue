@@ -14,9 +14,7 @@
 
     <v-row>
       <v-col v-for="n in 12" :key="n" cols="12" sm="6" md="4">
-        <preview-card
-          :img-src="`https://picsum.photos/1200/600?image=${n + randomSeed}`"
-        >
+        <preview-card :img-src="`https://picsum.photos/1200/600?random=${n}`">
           <v-card-text>
             Here is some information about the thing that is pictured.
           </v-card-text>
@@ -30,7 +28,7 @@
 export default {
   components: {
     HeroSheet: () => import('~/components/ui/HeroSheet.vue'),
-    PreviewCard: () => import('~/components/ui/PreviewCard')
+    PreviewCard: () => import('~/components/ui/PreviewCard.vue')
   },
   data() {
     return {

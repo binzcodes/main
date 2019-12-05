@@ -1,17 +1,17 @@
 <template>
-  <v-card tile>
+  <v-card>
     <div>
-      <logo />
+      <app-logo />
     </div>
     <v-card-title primary-title class="p-8">
       <div class="mx-auto">
         <h1 class="headline text-xs-center">{{ cardTitle }}</h1>
         <p class="grey--text text-xs-center mb-0">
-          <slot>More to come, for now heres my stack...</slot>
+          {{ cardDescription }}
         </p>
       </div>
     </v-card-title>
-    <skills v-bind:skills="skills" class="pb-8"></skills>
+    <app-stack v-bind:stack="cardTechnologyStack" class="pb-8 px-8"></app-stack>
   </v-card>
 </template>
 
@@ -19,13 +19,18 @@
 export default {
   name: 'HelloCard',
   components: {
-    Logo: () => import('~/components/ui/Logo.vue'),
-    Skills: () => import('~/components/Skills.vue')
+    AppLogo: () => import('~/components/ui/AppLogo.vue'),
+    AppStack: () => import('~/components/placeholder/Stack.vue')
   },
-  props: { cardTitle: { type: String, default: 'Hello, world!' } },
-  data() {
-    return {
-      skills: [
+  props: {
+    cardTitle: { type: String, default: 'Nuxt Static' },
+    cardDescription: {
+      type: String,
+      default: 'A full-featured boilerplate for static websites.'
+    },
+    cardTechnologyStack: {
+      type: Array,
+      default: () => [
         {
           name: 'Node.js',
           description: '',
@@ -63,10 +68,10 @@ export default {
           color: 'teal'
         },
         {
-          name: 'Kubernetes',
-          description: 'Koob-er-net-ease',
-          icon: 'mdi-kubernetes',
-          color: 'blue darken-2'
+          name: 'Netlify',
+          description: '',
+          icon: 'mdi-rhombus',
+          color: 'cyan'
         }
       ]
     }
