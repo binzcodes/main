@@ -3,15 +3,17 @@
     <v-container fluid class="py-12">
       <v-row>
         <v-col cols="12" sm="2">
-          <nuxt-link class="site-logo-container" to="/">
-            <v-img
-              src="icon.svg"
-              alt="Logo"
-              max-width="80px"
-              aspect-ratio="1"
-              class="mx-auto"
-            ></v-img>
-          </nuxt-link>
+          <div class="site-logo-container">
+            <nuxt-link to="/">
+              <v-img
+                src="icon.svg"
+                alt="Logo"
+                max-width="80px"
+                aspect-ratio="1"
+                class="mx-auto"
+              ></v-img>
+            </nuxt-link>
+          </div>
         </v-col>
         <v-col cols="12" sm="10">
           <v-row no-gutters>
