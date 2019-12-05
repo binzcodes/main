@@ -11,7 +11,7 @@
         </p>
       </div>
     </v-card-title>
-    <app-stack v-bind:stack="cardTechnologyStack"></app-stack>
+    <app-stack v-bind:stack="cardTechnologyStack" class="pb-8 px-8"></app-stack>
   </v-card>
 </template>
 
@@ -32,22 +32,16 @@ export default {
       type: Array,
       default: () => [
         {
-          name: 'Netlify',
-          description: '',
-          icon: 'mdi-rhombus',
-          color: 'cyan'
-        },
-        {
           name: 'Node.js',
           description: '',
           icon: 'mdi-nodejs',
           color: 'green'
         },
         {
-          name: 'NuxtJS',
+          name: 'TypeScript',
           description: '',
-          icon: 'mdi-nuxt',
-          color: 'teal'
+          icon: 'mdi-language-typescript',
+          color: 'light-blue'
         },
         {
           name: 'Vue.js',
@@ -56,10 +50,28 @@ export default {
           color: 'teal'
         },
         {
+          name: 'GraphQL',
+          description: '',
+          icon: 'mdi-graphql',
+          color: 'pink darken-2'
+        },
+        {
           name: 'Vuetify',
           description: '',
           icon: 'mdi-vuetify',
           color: 'blue lighten-2'
+        },
+        {
+          name: 'NuxtJS',
+          description: '',
+          icon: 'mdi-nuxt',
+          color: 'teal'
+        },
+        {
+          name: 'Netlify',
+          description: '',
+          icon: 'mdi-rhombus',
+          color: 'cyan'
         }
       ]
     }

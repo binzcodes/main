@@ -28,7 +28,7 @@
 export default {
   components: {
     HeroSheet: () => import('~/components/ui/HeroSheet.vue'),
-    PreviewCard: () => import('~/components/ui/PreviewCard')
+    PreviewCard: () => import('~/components/ui/PreviewCard.vue')
   },
   data() {
     return {
