@@ -1,5 +1,3 @@
-import colors from 'vuetify/es5/util/colors'
-
 export default {
   mode: 'universal',
   /*
@@ -13,8 +11,8 @@ export default {
     meta: {
       name: 'rbi.nz',
       description:
-        'Freelance software engineer, DevOps guy and Digital Nomad. ' +
-        'I make cloud native web applications whilst traveling, ' +
+        'Freelance Software Engineer, DevOps guy and Digital Nomad. ' +
+        'I make cloud-native web applications while backpacking, ' +
         'mostly with Node.js',
       ogHost: 'rbi.nz'
     },
@@ -26,7 +24,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: {},
+  loading: { color: '#184757' },
   /*
    ** Global CSS
    */
@@ -46,26 +44,47 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa'],
+  modules: ['@nuxtjs/pwa', 'nuxt-webfontloader'],
+  webfontloader: {
+    custom: {
+      families: ['Montserrat:n1,n3,n4,n5,n7n9', 'Share Tech:n3,n4,n7'],
+      urls: [
+        'https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700,900&display=swap',
+        'https://fonts.googleapis.com/css?family=Share+Tech:100,300,400,500,700,900&display=swap'
+      ]
+    }
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    // customVariables: ['~/assets/variables.scss'],
-    // defaultAssets: { font: false },
-    // treeShake: true,
+    customVariables: ['~/assets/variables.scss'],
+    defaultAssets: {
+      font: false
+    },
+    treeShake: true,
     theme: {
+      options: { customeProperties: true },
       dark: false,
       themes: {
+        light: {
+          primary: '#184757',
+          accent: '#43A1C5',
+          secondary: '#83E0A4',
+          info: '#36A8DA',
+          success: '#2A9D8F',
+          warning: '#E9C46A',
+          error: '#E56140'
+        },
         dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          primary: '#43A1C5',
+          accent: '#184757',
+          secondary: '#83E0A4',
+          info: '#36A8DA',
+          success: '#2A9D8F',
+          warning: '#E9C46A',
+          error: '#E56140'
         }
       }
     }

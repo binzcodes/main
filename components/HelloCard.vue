@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card tile>
     <div>
       <logo />
     </div>
@@ -7,11 +7,11 @@
       <div class="mx-auto">
         <h1 class="headline text-xs-center">{{ cardTitle }}</h1>
         <p class="grey--text text-xs-center mb-0">
-          <slot></slot>
+          <slot>More to come, for now heres my stack...</slot>
         </p>
       </div>
     </v-card-title>
-    <skills v-bind:skills="skills"></skills>
+    <skills v-bind:skills="skills" class="pb-8"></skills>
   </v-card>
 </template>
 
@@ -19,7 +19,7 @@
 export default {
   name: 'HelloCard',
   components: {
-    Logo: () => import('~/components/Logo.vue'),
+    Logo: () => import('~/components/ui/Logo.vue'),
     Skills: () => import('~/components/Skills.vue')
   },
   props: { cardTitle: { type: String, default: 'Hello, world!' } },
@@ -49,6 +49,12 @@ export default {
           description: '',
           icon: 'mdi-graphql',
           color: 'pink darken-2'
+        },
+        {
+          name: 'Vuetify',
+          description: '',
+          icon: 'mdi-vuetify',
+          color: 'blue lighten-2'
         },
         {
           name: 'NuxtJS',
