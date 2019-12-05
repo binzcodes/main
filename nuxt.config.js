@@ -21,6 +21,9 @@ export default {
       name: 'rbi.nz'
     }
   },
+  googleAnalytics: {
+    id: 'G-LB56SNSQ7G'
+  },
   /*
    ** Customize the progress-bar color
    */
@@ -39,7 +42,8 @@ export default {
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/google-analytics'
   ],
   /*
    ** Nuxt.js modules
