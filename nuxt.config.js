@@ -22,7 +22,7 @@ export default {
     }
   },
   googleAnalytics: {
-    id: 'G-LB56SNSQ7G'
+    id: 'UA-56868171-2'
   },
   /*
    ** Customize the progress-bar color
