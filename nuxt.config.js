@@ -35,7 +35,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['@/plugins/helper'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -48,7 +48,17 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa', 'nuxt-webfontloader'],
+  modules: [
+    [
+      'storyblok-nuxt',
+      {
+        accessToken: 'riBmd7jZF4lWhbEtt2wRLwtt',
+        cacheProvider: 'memory'
+      }
+    ],
+    '@nuxtjs/pwa',
+    'nuxt-webfontloader'
+  ],
   webfontloader: {
     custom: {
       families: ['Montserrat:n1,n3,n4,n5,n7n9', 'Share Tech:n3,n4,n7'],

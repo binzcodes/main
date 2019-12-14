@@ -1,6 +1,6 @@
 <template>
   <v-app :dark="dark">
-    <v-container fluid class="py-12">
+    <v-container class="py-12">
       <v-row>
         <v-col cols="12" sm="2">
           <div class="site-logo-container">
@@ -19,13 +19,12 @@
           <v-row no-gutters>
             <app-navigation />
           </v-row>
-
-          <v-row>
-            <v-content>
-              <nuxt />
-            </v-content>
-          </v-row>
         </v-col>
+      </v-row>
+      <v-row>
+        <v-content>
+          <nuxt />
+        </v-content>
       </v-row>
     </v-container>
     <app-footer />

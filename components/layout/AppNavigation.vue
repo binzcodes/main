@@ -36,7 +36,7 @@ export default {
         {
           name: 'about',
           url: '/about',
-          enable: false
+          enable: true
         },
         {
           name: 'blog',
