@@ -15,8 +15,8 @@
       <v-col v-for="post in posts" :key="post.uuid" cols="12" sm="6" md="4">
         <v-card :to="post.link" tile flat nuxt>
           <v-img
-            :src="post.imgSrc | transformImage('500x250')"
-            :lazy-src="post.imgSrc | transformImage('50x25/filters:quality(0)')"
+            :src="post.imgSrc | imageService('500x250')"
+            :lazy-src="post.imgSrc | imageService('50x25/filters:quality(0)')"
             aspect-ratio="2"
           >
             <template v-slot:placeholder>
@@ -81,8 +81,6 @@ export default {
         starts_with: 'blog/'
       })
       .then(res => {
-        // eslint-ignore-next-line
-        console.log(res.data.stories[0])
         return {
           posts: res.data.stories.map(story => {
             return {
