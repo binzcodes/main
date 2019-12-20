@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <hero-sheet :title="title">
+    <HeroSheet :title="title">
       <v-card-subtitle class="px-0 headline font-weight-light">
         <p>
           Software Engineer, DevOps guy and Digital Nomad
@@ -10,54 +10,17 @@
           Node.js
         </p>
       </v-card-subtitle>
-    </hero-sheet>
+    </HeroSheet>
     <v-row>
-      <v-col v-for="post in posts" :key="post.uuid" cols="12" sm="6" md="4">
-        <v-card :to="post.link" tile flat nuxt>
-          <v-img
-            :src="post.imgSrc | imageService('500x250')"
-            :lazy-src="post.imgSrc | imageService('50x25/filters:quality(0)')"
-            aspect-ratio="2"
-          >
-            <template v-slot:placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="grey lighten-5"
-                ></v-progress-circular>
-              </v-row>
-            </template>
-          </v-img>
-          <v-card-text style="position: relative;">
-            <v-btn
-              v-if="post.icon"
-              :color="post.icon ? 'grey lighten-4' : post.color"
-              tile
-              absolute
-              class="white--text"
-              fab
-              x-large
-              right
-              top
-            >
-              <v-avatar tile min-width="50%">
-                <v-img
-                  v-if="skill.logoSrc"
-                  :src="skill.logoSrc"
-                  :alt="skill.name + ' Logo'"
-                  contain
-                  aspect-ratio="1"
-                ></v-img>
-                <v-icon v-if="skill.icon" x-large>
-                  {{ skill.icon }}
-                </v-icon>
-              </v-avatar>
-            </v-btn>
-            <span v-text="post.subtitle" class="overline"></span>
-            <h3 v-text="post.title" class="headline"></h3>
-            <h4 v-text="post.preview" class="subtitle-1"></h4>
-          </v-card-text>
-        </v-card>
+      <v-col
+        v-editable="articles"
+        v-for="article in articles"
+        :key="article.uuid"
+        cols="12"
+        sm="6"
+        md="4"
+      >
+        <articlePreview :article="article"></articlePreview>
       </v-col>
     </v-row>
   </v-container>
@@ -66,11 +29,13 @@
 <script>
 export default {
   components: {
-    HeroSheet: () => import('~/components/ui/HeroSheet.vue')
+    HeroSheet: () => import('~/components/ui/HeroSheet'),
+    ArticlePreview: () => import('~/components/Article/ArticlePreview')
   },
   data() {
     return {
-      title: 'bınz'
+      title: 'bınz',
+      articles: []
     }
   },
   asyncData(context) {
@@ -81,14 +46,14 @@ export default {
       })
       .then(res => {
         return {
-          posts: res.data.stories.map(story => {
+          articles: res.data.stories.map(story => {
             return {
               uuid: story.slug,
               title: story.content.title,
-              subtitle: 'Authored by Ryan Binns',
+              tags: story.tag_list.slice(0, 5),
               imgSrc: story.content.hero_image,
               icon: null,
-              preview: story.content.content,
+              preview: story.content.preview,
               link: '/' + story.full_slug
             }
           })
