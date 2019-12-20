@@ -67,7 +67,6 @@
 export default {
   components: {
     HeroSheet: () => import('~/components/ui/HeroSheet.vue')
-    // TechGallery: () => import('~/components/placeholder/Gallery.vue')
   },
   data() {
     return {

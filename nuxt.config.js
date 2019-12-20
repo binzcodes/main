@@ -35,7 +35,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/helper', '@/plugins/imageService'],
+  plugins: [
+    '@/plugins/helper',
+    '@/plugins/components',
+    '@/plugins/imageService'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -43,7 +47,8 @@ export default {
     '@nuxt/typescript-build',
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/moment'
   ],
   /*
    ** Nuxt.js modules
@@ -61,7 +66,10 @@ export default {
   ],
   webfontloader: {
     custom: {
-      families: ['Montserrat:n1,n3,n4,n5,n7n9', 'Share Tech:n3,n4,n7'],
+      families: [
+        'Montserrat:n1,n3,n4,n5,n7,n9',
+        'Share Tech:n1,n3,n4,n5,n7,n9'
+      ],
       urls: [
         'https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700,900&display=swap',
         'https://fonts.googleapis.com/css?family=Share+Tech:100,300,400,500,700,900&display=swap'
