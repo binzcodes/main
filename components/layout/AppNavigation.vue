@@ -4,6 +4,7 @@
       <v-tabs
         :grow="$vuetify.breakpoint.xsOnly"
         background-color="transparent"
+        class="pr-sm-12"
         right
       >
         <v-tabs-slider color="primary"></v-tabs-slider>
