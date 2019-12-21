@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export default {
   mode: 'universal',
   /*
@@ -54,15 +56,19 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    '@nuxtjs/pwa',
+    'nuxt-webfontloader',
     [
       'storyblok-nuxt',
       {
-        accessToken: 'riBmd7jZF4lWhbEtt2wRLwtt',
+        // TODO: move tokens to env var - can I use dotenv only for dev?
+        accessToken:
+          process.env.NODE_ENV === 'production'
+            ? '7fDAg3Uru2EUbQDUdPP4pAtt'
+            : 'riBmd7jZF4lWhbEtt2wRLwtt',
         cacheProvider: 'memory'
       }
-    ],
-    '@nuxtjs/pwa',
-    'nuxt-webfontloader'
+    ]
   ],
   webfontloader: {
     custom: {
@@ -115,7 +121,63 @@ export default {
    ** Generate configuration
    */
   generate: {
-    fallback: true
+    fallback: true,
+    routes(callback) {
+      const token = `7fDAg3Uru2EUbQDUdPP4pAtt`
+      const perPage = 100
+      const version = `published`
+
+      const page = 1
+      const routes = []
+
+      // Call first Page of the Links API: https://www.storyblok.com/docs/Delivery-Api/Links
+      axios
+        .get(
+          `https://api.storyblok.com/v1/cdn/links?token=${token}&version=${version}&per_page=${perPage}&page=${page}`
+        )
+        .then(res => {
+          Object.keys(res.data.links).forEach(key => {
+            if (res.data.links[key].slug !== 'home') {
+              routes.push('/' + res.data.links[key].slug)
+            }
+          })
+
+          // Check if there are more pages available otherwise execute callback with current routes.
+          const total = res.headers.total
+          const maxPage = Math.ceil(total / perPage)
+          if (maxPage <= 1) {
+            callback(null, routes)
+          }
+
+          // Since we know the total we now can pre-generate all requests we need to get all Links
+          const contentRequests = []
+          for (let page = 2; page <= maxPage; page++) {
+            contentRequests.push(
+              axios.get(
+                `https://api.storyblok.com/v1/cdn/links?token=${token}&version=${version}&per_page=${perPage}&page=${page}`
+              )
+            )
+          }
+
+          // Axios allows us to execute all requests using axios.spread we will than generate our routes and execute the callback
+          axios
+            .all(contentRequests)
+            .then(
+              axios.spread((...requests) => {
+                requests.forEach(request => {
+                  Object.keys(request.data.links).forEach(key => {
+                    if (request.data.links[key].slug !== 'home') {
+                      routes.push('/' + request.data.links[key].slug)
+                    }
+                  })
+                })
+
+                callback(null, routes)
+              })
+            )
+            .catch(callback)
+        })
+    }
   },
   /*
    ** Build configuration
