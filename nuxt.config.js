@@ -39,7 +39,6 @@ export default {
    */
   plugins: [
     '@/plugins/helper',
-    '@/plugins/content-types',
     '@/plugins/components',
     '@/plugins/imageService'
   ],
