@@ -52,6 +52,7 @@ export default {
               title: story.content.title,
               tags: story.tag_list.slice(0, 5),
               imgSrc: story.content.hero_image,
+              imgCaption: story.content.hero_image_caption,
               icon: null,
               preview: story.content.preview,
               link: '/' + story.full_slug

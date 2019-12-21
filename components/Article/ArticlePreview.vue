@@ -4,6 +4,7 @@
       :src="article.imgSrc | imageService('600x300')"
       :lazy-src="article.imgSrc | imageService('60x30/filters:quality(0)')"
       aspect-ratio="2"
+      :alt="article.imageCaption"
     >
       <template v-slot:placeholder>
         <v-row class="fill-height ma-0" align="center" justify="center">
@@ -15,8 +16,8 @@
       </template>
     </v-img>
     <v-card-text>
-      <h3 v-text="article.title" class="headline"></h3>
-      <p v-text="article.description" class="body-1"></p>
+      <h3 v-text="article.title" class="headline primary--text pb-6"></h3>
+      <p v-text="article.preview" class="body-1"></p>
     </v-card-text>
   </v-card>
 </template>
