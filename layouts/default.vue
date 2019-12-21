@@ -1,21 +1,21 @@
 <template>
   <v-app :dark="dark">
-    <v-container fluid class="py-12">
+    <v-container fluid>
       <v-row>
-        <v-col cols="12" sm="2">
-          <div class="site-logo-container">
+        <v-col cols="12" sm="2" class="mt-n6">
+          <div class="site-logo-container pt-12">
             <nuxt-link to="/">
               <v-img
-                src="icon.svg"
+                src="/icon.svg"
                 alt="Logo"
                 max-width="80px"
                 aspect-ratio="1"
-                class="mx-auto"
+                class="mx-auto mt-4"
               ></v-img>
             </nuxt-link>
           </div>
         </v-col>
-        <v-col cols="12" sm="10">
+        <v-col cols="12" sm="10" class="pt-sm-12">
           <v-row no-gutters>
             <app-navigation />
           </v-row>

@@ -7,10 +7,11 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
+    X-Frame-Options = "ALLOW-FROM https://app.storyblok.com/"
     X-XSS-Protection = "1; mode=block"
     Content-Security-Policy = '''
-    default-src https: 'self';
+    frame-ancestors 'self' https://*.storyblok.com;
+    default-src https: 'self' https://*.storyblok.com;
     font-src https: 'self' fonts.gstatic.com;
     style-src https: 'self' fonts.googleapis.com 'unsafe-inline';
     script-src https: 'self' www.google-analytics.com 'unsafe-inline';

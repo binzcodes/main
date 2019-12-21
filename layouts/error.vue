@@ -1,18 +1,12 @@
 <template>
   <v-app>
     <v-container>
-      <hero-sheet :title="error.statusCode" title-class="error--text">
+      <hero-sheet :title="statusCode.toString()" title-class="error--text">
         <v-card-subtitle
-          v-text="error.message"
+          v-text="message"
           class="px-0 headline display--massive-sub font-weight-light"
         >
         </v-card-subtitle>
-        <v-card-text
-          class="px-0 headline display--massive-sub font-weight-light"
-        >
-          The issue has been reported using
-          <a @click="openSentry">sentry.io</a>
-        </v-card-text>
         <v-card-actions class="px-0">
           <v-btn outlined color="success" nuxt to="/" tile large>
             Take me back
@@ -42,10 +36,12 @@ export default {
   },
   computed: {
     statusCode() {
-      return (this.error && this.error.statusCode) || 500
+      return this.error && this.error.statusCode ? this.error.statusCode : 500
     },
     message() {
-      return this.error.message || 'An error occurred'
+      return this.error && this.error.message
+        ? this.error.message
+        : 'An error occurred'
     }
   },
   methods: {

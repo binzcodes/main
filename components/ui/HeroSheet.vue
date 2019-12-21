@@ -32,6 +32,7 @@ export default {
 
 <style scoped>
 .display-massive {
+  text-transform: lowercase;
   line-height: 1.2em;
   font-size: 15em !important;
   font-family: 'Share Tech', 'Montserrat', 'Roboto', '-apple-system',
@@ -40,6 +41,6 @@ export default {
   text-indent: -0.08em;
 }
 .big-text-row {
-  margin-bottom: 30vh;
+  margin-bottom: 20vh;
 }
 </style>
