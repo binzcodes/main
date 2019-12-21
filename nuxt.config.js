@@ -39,6 +39,7 @@ export default {
    */
   plugins: [
     '@/plugins/helper',
+    '@/plugins/content-types',
     '@/plugins/components',
     '@/plugins/imageService'
   ],
@@ -124,58 +125,33 @@ export default {
     fallback: true,
     routes(callback) {
       const token = `7fDAg3Uru2EUbQDUdPP4pAtt`
-      const perPage = 100
-      const version = `published`
+      const version = 'published'
+      let cacheVersion = 0
 
-      const page = 1
-      const routes = []
+      // other routes that are not in Storyblok with their slug.
+      const routes = ['/'] // adds / directly
 
-      // Call first Page of the Links API: https://www.storyblok.com/docs/Delivery-Api/Links
+      // Load space and receive latest cache version key to improve performance
       axios
-        .get(
-          `https://api.storyblok.com/v1/cdn/links?token=${token}&version=${version}&per_page=${perPage}&page=${page}`
-        )
-        .then(res => {
-          Object.keys(res.data.links).forEach(key => {
-            if (res.data.links[key].slug !== 'home') {
-              routes.push('/' + res.data.links[key].slug)
-            }
-          })
+        .get(`https://api.storyblok.com/v1/cdn/spaces/me?token=${token}`)
+        .then(spaceRes => {
+          // timestamp of latest publish
+          cacheVersion = spaceRes.data.space.version
 
-          // Check if there are more pages available otherwise execute callback with current routes.
-          const total = res.headers.total
-          const maxPage = Math.ceil(total / perPage)
-          if (maxPage <= 1) {
-            callback(null, routes)
-          }
-
-          // Since we know the total we now can pre-generate all requests we need to get all Links
-          const contentRequests = []
-          for (let page = 2; page <= maxPage; page++) {
-            contentRequests.push(
-              axios.get(
-                `https://api.storyblok.com/v1/cdn/links?token=${token}&version=${version}&per_page=${perPage}&page=${page}`
-              )
-            )
-          }
-
-          // Axios allows us to execute all requests using axios.spread we will than generate our routes and execute the callback
+          // Call for all Links using the Links API: https://www.storyblok.com/docs/Delivery-Api/Links
           axios
-            .all(contentRequests)
-            .then(
-              axios.spread((...requests) => {
-                requests.forEach(request => {
-                  Object.keys(request.data.links).forEach(key => {
-                    if (request.data.links[key].slug !== 'home') {
-                      routes.push('/' + request.data.links[key].slug)
-                    }
-                  })
-                })
-
-                callback(null, routes)
-              })
+            .get(
+              `https://api.storyblok.com/v1/cdn/links?token=${token}&version=${version}&cv=${cacheVersion}`
             )
-            .catch(callback)
+            .then(res => {
+              Object.keys(res.data.links).forEach(key => {
+                if (res.data.links[key].slug !== 'home') {
+                  routes.push('/' + res.data.links[key].slug)
+                }
+              })
+
+              callback(null, routes)
+            })
         })
     }
   },
@@ -183,6 +159,9 @@ export default {
    ** Build configuration
    */
   build: {
+    extractCSS: {
+      allChunks: true
+    }
     /*
      ** You can extend webpack config here
      */
