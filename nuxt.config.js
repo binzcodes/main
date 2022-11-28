@@ -24,7 +24,7 @@ export default {
     }
   },
   googleAnalytics: {
-    id: 'UA-56868171-2'
+    id: process.env.GOOGLE_ANALYTICS_ID
   },
   /*
    ** Customize the progress-bar color
