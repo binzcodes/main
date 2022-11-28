@@ -28,3 +28,9 @@
     magnetometer 'none';
     speaker 'none'
     '''
+
+[[redirects]]
+  from = "/new"
+  to = "https://gitpod.io/#https://github.com/binzcodes/new"
+  status = 301
+  force = true

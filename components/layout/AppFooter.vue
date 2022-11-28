@@ -5,8 +5,8 @@
         <a class="subtitle-1 mx-auto" href="mailto:hi@rbi.nz">
           hi@rbi.nz
         </a>
-        <a class="subtitle-1 mx-auto" href="tel:+447801992902">
-          <span class="grey--text">(+44)</span> 07801 992 902
+        <a class="subtitle-1 mx-auto" href="tel:+441613751234">
+          <span class="grey--text">(+44)</span> 0161 375 1234
         </a>
       </v-card-title>
 
