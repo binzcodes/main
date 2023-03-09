@@ -34,7 +34,7 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.3.5",
     "cz-conventional-jira-smart-commit": "^0.1.1",
-    "nuxt": "^2.16.1",
+    "nuxt": "^2.16.2",
     "nuxt-webfontloader": "^1.1.0"
   },
   "devDependencies": {
