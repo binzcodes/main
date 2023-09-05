@@ -1,5 +1,7 @@
+import colors from 'vuetify/es5/util/colors'
+
 export default {
-  mode: 'universal',
+  target: 'static',
   /*
    ** Headers of the page
    */
@@ -69,7 +71,7 @@ export default {
     },
     treeShake: true,
     theme: {
-      options: { customeProperties: true },
+      options: { customProperties: true },
       dark: false,
       themes: {
         light: {
